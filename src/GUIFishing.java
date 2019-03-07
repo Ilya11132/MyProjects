@@ -24,6 +24,7 @@ public class GUIFishing extends JFrame {                                        
         });
     }
 
+
     void mainMenu() {                                                               // Задаем дизайн для формы главного меню, размещаем элементы
         Color color = new Color(135, 183, 200);
         BaseImage baseImage = new BaseImage();
@@ -50,7 +51,6 @@ public class GUIFishing extends JFrame {                                        
                 15, 4, 15, 6, color));
         button1.addActionListener(new listenerGoToBase());
         buttonPanel.add(button1);
-
 
 
         button2 = new JButton("Сохранить");
@@ -91,7 +91,7 @@ public class GUIFishing extends JFrame {                                        
         frame.setResizable(false);
     }
 
-    class listenerGoToBase implements ActionListener {                                      // Переходим на базу
+    class listenerGoToBase implements ActionListener {
         public void actionPerformed(ActionEvent event) {
             frame.setVisible(false);
             AdditionalBase start2 = new AdditionalBase();
