@@ -3,15 +3,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
 public class GUIFishing extends JFrame {                                           // Начальный класс, с главным меню
     private JFrame frame;
     private JButton button2;
     private JButton button3;
 
     public static void main(String[] args) {
-        GUIFishing start = new GUIFishing();                                     //Создаем экземпляр нашего приложения. Форма вызова такая,
-        try {                                                                   // чтобы был нормальный дизайн у кнопок и фреймов
+        GUIFishing start = new GUIFishing();                                                   //Создаем экземпляр нашего приложения. Форма вызова такая,
+        try {                                                                                 // чтобы был нормальный дизайн у кнопок и фреймов
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
             e.printStackTrace();
@@ -23,7 +22,6 @@ public class GUIFishing extends JFrame {                                        
             }
         });
     }
-
 
     void mainMenu() {                                                               // Задаем дизайн для формы главного меню, размещаем элементы
         Color color = new Color(135, 183, 200);
@@ -49,9 +47,8 @@ public class GUIFishing extends JFrame {                                        
         button1.setPreferredSize(dimension);
         button1.setBorder(BorderFactory.createMatteBorder(
                 15, 4, 15, 6, color));
-        button1.addActionListener(new listenerGoToBase());
+        button1.addActionListener(new listenerGoBase());
         buttonPanel.add(button1);
-
 
         button2 = new JButton("Сохранить");
         button2.setPreferredSize(dimension);
@@ -84,18 +81,18 @@ public class GUIFishing extends JFrame {                                        
 
         frame = new JFrame("Рыбалка");
         //  frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        frame.setBounds(600, 300, 550, 310);//Если не выставить  размер и положение то окно будет мелкое и незаметное
+        frame.setBounds(600, 300, 550, 310);                              //Если не выставить  размер и положение то окно будет мелкое и незаметное
         frame.add(east, BorderLayout.EAST);
         frame.add(label);
         frame.setVisible(true);
         frame.setResizable(false);
     }
 
-    class listenerGoToBase implements ActionListener {
+    class listenerGoBase implements ActionListener {                                                // Идем на рыболовную базу
         public void actionPerformed(ActionEvent event) {
             frame.setVisible(false);
-            AdditionalBase start2 = new AdditionalBase();
-            start2.go2();
+            AdditionalBase additionalBase = new AdditionalBase();
+            additionalBase.menuBase();
         }
     }
 

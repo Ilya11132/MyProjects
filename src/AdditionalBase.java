@@ -3,13 +3,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AdditionalBase extends JFrame {
+class AdditionalBase extends JFrame {
 
     private JFrame frame;
     private JButton button2;
     private JButton button3;
 
-    void go2() {
+    void menuBase() {                                                                       // Задаем дизайн для формы меню рыболовной базы, размещаем элементы
         Color color = new Color(135, 183, 200);
         BaseImage.BaseImage2 baseImage2 = new BaseImage.BaseImage2();
         Font font = new Font("Cambria", Font.BOLD, 32);
@@ -33,9 +33,8 @@ public class AdditionalBase extends JFrame {
         button1.setPreferredSize(dimension);
         button1.setBorder(BorderFactory.createMatteBorder(
                 15, 4, 15, 6, color));
-        button1.addActionListener(new buttonListeber());
+        button1.addActionListener(new listenerGoMap());
         buttonPanel.add(button1);
-
 
         button2 = new JButton("В магазин");
         button2.setPreferredSize(dimension);
@@ -44,7 +43,6 @@ public class AdditionalBase extends JFrame {
         button2.addActionListener(new buttonListeber2());
         buttonPanel.add(button2);
 
-
         button3 = new JButton("Мой улов");
         button3.setPreferredSize(dimension);
         button3.setBorder(BorderFactory.createMatteBorder(
@@ -52,14 +50,12 @@ public class AdditionalBase extends JFrame {
         button3.addActionListener(new buttonListeber3());
         buttonPanel.add(button3);
 
-
         JButton buttonExit = new JButton("Выход");
         buttonExit.setPreferredSize(dimension);
         buttonExit.setBorder(BorderFactory.createMatteBorder(
                 15, 4, 15, 6, color));
-        buttonExit.addActionListener(new buttonListeber4());
+        buttonExit.addActionListener(new listenerGoBackMainMenu());
         buttonPanel.add(buttonExit);
-
 
         JPanel east = new JPanel(new GridBagLayout());
         east.setLayout(new BoxLayout(east, BoxLayout.Y_AXIS));
@@ -70,19 +66,19 @@ public class AdditionalBase extends JFrame {
 
         frame = new JFrame("Рыбалка");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setBounds(600, 300, 550, 310);//Если не выставить  размер и положение то окно будет мелкое и незаметное
+        frame.setBounds(600, 300, 550, 310);                    //Если не выставить  размер и положение то окно будет мелкое и незаметное
         frame.add(east, BorderLayout.EAST);
         frame.add(label);
         frame.setVisible(true);
         frame.setResizable(false);
     }
 
-    class buttonListeber implements ActionListener {
+    class listenerGoMap implements ActionListener {                                  // Идем на карту
         public void actionPerformed(ActionEvent event) {
             frame.setVisible(false);
 
-            AdditionalFishing additional2 = new AdditionalFishing();
-            additional2.go3();
+            AdditionalFishing additionalFishing = new AdditionalFishing();
+            additionalFishing.goMap();
         }
     }
 
@@ -98,11 +94,11 @@ public class AdditionalBase extends JFrame {
         }
     }
 
-    class buttonListeber4 implements ActionListener {
+    class listenerGoBackMainMenu implements ActionListener {                               // Идем назад, в главное меню
         public void actionPerformed(ActionEvent event) {
             frame.setVisible(false);
-            GUIFishing start = new GUIFishing();
-            start.mainMenu();
+            GUIFishing guiFishing = new GUIFishing();
+            guiFishing.mainMenu();
         }
     }
 }
