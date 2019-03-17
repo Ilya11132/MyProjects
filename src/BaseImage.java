@@ -26,34 +26,30 @@ public class BaseImage extends JPanel {
 
         }
     }
+
     static class BaseImage4 extends JPanel {
         public void paintComponent(Graphics g) {
 
             Image image = new ImageIcon("D:\\JDK\\Java\\Fishing\\GUIFishing\\src/Carta2.jpg").getImage();
             g.drawImage(image, 0, 0, this);
 
-          //  Font font = new Font("Verdana", Font.PLAIN, 22);
-          //  g.setFont(font);
+            //  Font font = new Font("Verdana", Font.PLAIN, 22);
+            //  g.setFont(font);
 
         }
     }
 
-     class imageShape extends JPanel {
+    class imageShape extends JPanel {
         public void paintComponent(Graphics g) {
 
 
             Image image = new ImageIcon("D:\\JDK\\Java\\Fishing\\GUIFishing\\src/vodoem.jpeg").getImage();
             g.drawImage(image, 0, 0, this);
 
-           g.setColor(Color.red);
-          // g.fillOval(Fishing.xx,Fishing.yy,100,100);
+            g.setColor(Color.red);
+            // g.fillOval(Fishing.xx,Fishing.yy,100,100);
         }
     }
-
-
-
-
-
 
 
 }
