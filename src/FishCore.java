@@ -5,7 +5,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
 
-class FishCore {
+class FishCore {                 // Сделать фото пойманой рыбы. Реализовать в виде хэш карты, где значением будет путь к фото, а ключом - строка типа "Окунь 8 кг"
+                                // Значение ключа также выводить во фрейме вместе с фото и считывать его. Реализовать сохранение пойманной рыбы, чтобы пользователь мог просмотреть свои трофеи
 
 
     private final JOptionPane optPane = new JOptionPane();
@@ -68,7 +69,7 @@ class FishCore {
 
         frame = new JFrame("Рыбалка");
         //  frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        frame.setBounds(650, 350, 500, 300);                              //Если не выставить  размер и положение то окно будет мелкое и незаметное
+        frame.setBounds(650, 350, 700, 600);                              //Если не выставить  размер и положение то окно будет мелкое и незаметное
         frame.add(east, BorderLayout.EAST);
         frame.add(label);
         frame.setVisible(true);
@@ -88,10 +89,10 @@ class FishCore {
         public Image myImage() {
 
             ArrayList<Image> clubs = new ArrayList<>();
-            clubs.add(new ImageIcon("D:\\JDK\\Java\\Fishing\\GUIFishing\\src/c0.jpg").getImage());
-            clubs.add(new ImageIcon("D:\\JDK\\Java\\Fishing\\GUIFishing\\src/c1.jpg").getImage());
-            clubs.add(new ImageIcon("D:\\JDK\\Java\\Fishing\\GUIFishing\\src/c2.jpg").getImage());
-            clubs.add(new ImageIcon("D:\\JDK\\Java\\Fishing\\GUIFishing\\src/s-963.jpg").getImage());
+            clubs.add(new ImageIcon("D:\\JDK\\Java\\Fishing\\GUIFishing\\src/karas.jpg").getImage());
+            clubs.add(new ImageIcon("D:\\JDK\\Java\\Fishing\\GUIFishing\\src/karp.jpg").getImage());
+            clubs.add(new ImageIcon("D:\\JDK\\Java\\Fishing\\GUIFishing\\src/okun.jpg").getImage());
+            clubs.add(new ImageIcon("D:\\JDK\\Java\\Fishing\\GUIFishing\\src/plotva.jpg").getImage());
 
             Random random = new Random();
             int rand = random.nextInt(3);
@@ -106,6 +107,7 @@ class FishCore {
         public void paintComponent(Graphics g) {
             DeckOfCards deckOfCards = new DeckOfCards();
             Image image = deckOfCards.myImage();
+
             g.drawImage(image, 0, 0, this);
 
         }
